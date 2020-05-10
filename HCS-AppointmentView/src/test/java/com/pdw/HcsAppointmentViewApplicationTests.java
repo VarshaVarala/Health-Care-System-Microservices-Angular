@@ -10,37 +10,36 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
-import com.pdw.entity.DiagnosticCentre;
-import junit.framework.Assert;
+import com.pdw.entity.Appointment;
 
+import junit.framework.Assert;
 @SuppressWarnings("deprecation")
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class HcsUserAppointmentApplicationTests {
- 
+public class HcsAppointmentViewApplicationTests {
+	
 	@Test
-	public void CenterListSuccess() throws URISyntaxException{
+	public void TestDiagnosticListSuccess() throws URISyntaxException{
 		RestTemplate rest=new RestTemplate();
-		final String baseUrl="http://localhost:"+1111+"/User/FetchCenterList";
+		final String baseUrl="http://localhost:"+1110+"/User/FetchAppList";
 		URI uri=new URI(baseUrl);
 		
-		ResponseEntity<DiagnosticCentre[]> result=rest.getForEntity(uri,DiagnosticCentre[].class);
-		DiagnosticCentre[] diagnosticCenter=result.getBody();
+		ResponseEntity<Appointment []> result=rest.getForEntity(uri,Appointment[].class);
+		Appointment[] appointments=result.getBody();
 		Assert.assertEquals(200, result.getStatusCodeValue());
-		Assert.assertNotNull(diagnosticCenter);
+		Assert.assertNotNull(appointments);
 	
 	}
 	
 	@Test
-	public void CenterListFail() throws URISyntaxException{
+	public void TestDiagnosticListFail() throws URISyntaxException{
 		RestTemplate rest=new RestTemplate();
-		final String baseUrl="http://localhost:"+1111+"/User/FetchCenterList";
+		final String baseUrl="http://localhost:"+1110+"/User/FetchAppList";
 		URI uri=new URI(baseUrl);
 		
-		ResponseEntity<DiagnosticCentre[]> result=rest.getForEntity(uri,DiagnosticCentre[].class);
+		ResponseEntity<Appointment[]> result=rest.getForEntity(uri,Appointment[].class);
 		Assert.assertEquals(400, result.getStatusCodeValue());
 	
 	}
 
 }
-

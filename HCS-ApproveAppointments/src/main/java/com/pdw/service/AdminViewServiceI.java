@@ -2,11 +2,11 @@ package com.pdw.service;
 
 import java.util.List;
 
-import com.pdw.entity.Appointments;
+import com.pdw.entity.Appointment;
 
 public interface AdminViewServiceI {
-	List<Appointments> AppointmentList();
+	List<Appointment> AppointmentList();
 
-	String approveAppointment(Appointments app);
+	String approveAppointment(Appointment app);
 
 }

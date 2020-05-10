@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import com.pdw.daoI.AppointmentDaoI;
 import com.pdw.daoI.CenterDaoI;
 import com.pdw.daoI.TestDaoI;
-import com.pdw.entity.Appointments;
-import com.pdw.entity.DiagnosticCenter;
-import com.pdw.entity.Tests;
+import com.pdw.entity.Appointment;
+import com.pdw.entity.DiagnosticCentre;
+import com.pdw.entity.Test;
 @Service
 public class UserAppointmentService implements UserAppointmentServiceI  {
 
@@ -24,21 +24,27 @@ public class UserAppointmentService implements UserAppointmentServiceI  {
 	CenterDaoI centerListDao;
 	
 	@Override
-	public List<DiagnosticCenter> DiagnosticCenterList() {
-		List<DiagnosticCenter> CenterList=centerListDao.findAll();
+	public List<DiagnosticCentre> DiagnosticCenterList() {
+		List<DiagnosticCentre> CenterList=centerListDao.findAll();
 		return CenterList;
 	}
 
 	
 	@Override
-	public List<Tests> TestsList(String centreId) {
-		List<Tests> testList=centerListDao.getOne(centreId).getListOfTests();
+	public List<Test> TestsList(String centreId) {
+		List<Test> testList=centerListDao.getOne(centreId).getListOfTests();
 		return testList;
+	}
+	
+	public Boolean userIdFound(String userId){
+		List<String> exists=appointmentDao.checkUserIdEXists(userId);
+		Boolean value=exists.isEmpty();
+	return value;
 	}
 
 	@Override
-	public String makeAppointment(Appointments app) {
-		Appointments updatedApp= appointmentDao.save(app);
+	public String makeAppointment(Appointment app) {
+		Appointment updatedApp= appointmentDao.save(app);
 		
 		return "Appointment is registered, please await for confirmation";
 	}

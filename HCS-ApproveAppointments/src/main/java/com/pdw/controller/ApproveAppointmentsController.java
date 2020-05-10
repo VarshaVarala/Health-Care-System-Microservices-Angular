@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pdw.entity.Appointments;
+import com.pdw.entity.Appointment;
 import com.pdw.service.AdminViewServiceI;
 
 @RestController
@@ -22,7 +22,7 @@ public class ApproveAppointmentsController {
 	AdminViewServiceI adminViewService;
 	
 	 @PutMapping("/approveAppointment")
-	 public String updateAppointment(@RequestBody Appointments app) {
+	 public String updateAppointment(@RequestBody Appointment app) {
 		 System.out.println(app.toString());
 		 String updateMsg =  adminViewService.approveAppointment(app);
 		 return updateMsg;

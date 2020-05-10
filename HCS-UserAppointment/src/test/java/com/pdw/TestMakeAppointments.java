@@ -1,31 +1,24 @@
 package com.pdw;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
 import com.pdw.entity.Appointment;
 
 import junit.framework.Assert;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class HcsApproveAppointmentsApplicationTests {
-
+@SuppressWarnings("deprecation")
+public class TestMakeAppointments {
 	@Test
-	public void ApproveAppointmentsSuccess() throws URISyntaxException{
+	public void MakeAppointmentsSuccess() throws URISyntaxException{
 		RestTemplate rest=new RestTemplate();
-		final String baseUrl="http://localhost:"+1112+"/Admin/approveAppointment";
+		final String baseUrl="http://localhost:"+1111+"/User/makeAppointment";
 		URI uri=new URI(baseUrl);
 		
 		Appointment appointments=new Appointment();
@@ -47,9 +40,9 @@ public class HcsApproveAppointmentsApplicationTests {
 	}
 	
 	@Test
-	public void ApproveAppointmentsFail() throws URISyntaxException{
+	public void MakeAppointmentsFail() throws URISyntaxException{
 		RestTemplate rest=new RestTemplate();
-		final String baseUrl="http://localhost:"+1112+"/Admin/approveAppointment";
+		final String baseUrl="http://localhost:"+1111+"/User/makeAppointment";
 		URI uri=new URI(baseUrl);
 		
 		Appointment appointments=new Appointment();
