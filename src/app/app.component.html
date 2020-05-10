@@ -1,0 +1,24 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+      h1{
+          font-size: 50px;
+      }
+  </style>
+</head>
+<div class="jumbotron" color="red">
+  <div class="container">
+<h1 class="navbar navbar-nav bg-blue" class="bg-primary text-white"><b>Health Care System</b></h1>
+
+<br>
+<div class="navbar navbar-expand-s bg-blue">
+
+  <a routerLink="app-make-appointment" routerLinkActive="active"><b>Make an Appointment!</b></a>
+  <a routerLink="app-view-appointments" routerLinkActive="active"><b>View your Appointments</b></a>
+  <a routerLink="app-approve-appointments" routerLinkActive="active"><b>Approve Appointments</b></a>  
+
+</div>
+</div>
+</div>
+<br>
+<router-outlet></router-outlet>
